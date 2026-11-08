@@ -1,0 +1,349 @@
+[
+  {
+    "qid": "Q01",
+    "arm": "single",
+    "question": "What deficit does the 2026 draft budget target, and which revenue measures does it propose?",
+    "answer": "The 2026 draft budget targets a deficit of 3 percent of GDP [C140]. Its proposed revenue policy measures include a 2-percentage point increase in the social security contribution rate, a higher ceiling for insurable income, raising the dividend income tax rate from 5 to 10 percent, and increasing tobacco excise taxes [C140]. Additionally, the draft envisages revenue gains of about 1.4 percent of GDP from tax administration measures [C140].",
+    "citations": [
+      "C140"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C140",
+      "C022",
+      "C025",
+      "C141",
+      "C026",
+      "C012"
+    ],
+    "retrieved_pages": [
+      9,
+      14,
+      15,
+      16,
+      65,
+      66
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every detail provided in the answer is directly supported by the text in citation [C140].",
+    "completeness_reason": "The answer covers both the deficit targeted by the 2026 draft budget and all the proposed revenue measures mentioned in the source.",
+    "retrieval_seconds": 0.41,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q02",
+    "arm": "single",
+    "question": "How large a fiscal adjustment would a neutral fiscal stance require?",
+    "answer": "A neutral fiscal stance would require a fiscal adjustment of about 1 percent of GDP.",
+    "citations": [
+      "C008"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C022",
+      "C052",
+      "C008",
+      "C003",
+      "C140",
+      "C120"
+    ],
+    "retrieved_pages": [
+      3,
+      5,
+      14,
+      29,
+      54,
+      65
+    ],
+    "page_hit": true,
+    "gold_recall": 0.5,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every part of the answer is directly supported by the text which states that a neutral fiscal stance would require an adjustment of about 1 percent of GDP.",
+    "completeness_reason": "The answer successfully and fully addresses the specific question asked regarding the size of the fiscal adjustment required for a neutral stance.",
+    "retrieval_seconds": 0.258,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q03",
+    "arm": "single",
+    "question": "Which borrower-based measures did the BNB introduce on mortgage loans, and when?",
+    "answer": "The BNB introduced borrower-based measures on mortgage loans in October 2024 [C016, C121]. These measures notably included a Loan-to-Value (LTV) limit of 85 percent, a Debt-Service-to-Income (DSTI) limit of 50 percent, and a maturity limit of 30 years [C016, C121].",
+    "citations": [
+      "C016",
+      "C121"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C121",
+      "C016",
+      "C041",
+      "C040",
+      "C004",
+      "C054"
+    ],
+    "retrieved_pages": [
+      3,
+      11,
+      12,
+      22,
+      23,
+      30,
+      54
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every statement in the answer is completely supported by the provided text passages.",
+    "completeness_reason": "The answer fully addresses what measures were introduced and when, matching all details in the reference.",
+    "retrieval_seconds": 0.301,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q04",
+    "arm": "single",
+    "question": "How well capitalised are Bulgarian banks, and which capital buffers apply?",
+    "answer": "The Bulgarian banking sector remains well capitalized [C042]. However, the provided passages do not contain information regarding which capital buffers apply.",
+    "citations": [
+      "C042"
+    ],
+    "answerable": false,
+    "retrieved": [
+      "C042",
+      "C124",
+      "C023",
+      "C097",
+      "C001",
+      "C098"
+    ],
+    "retrieved_pages": [
+      2,
+      15,
+      23,
+      24,
+      45,
+      55,
+      56
+    ],
+    "page_hit": false,
+    "gold_recall": 0.0,
+    "faithfulness": 5,
+    "completeness": 3,
+    "faithfulness_reason": "The statement that banks are well capitalized is supported by the retrieved passages, and the refusal regarding the capital buffers is accurate based on the text provided to the system.",
+    "completeness_reason": "The system failed to answer the second part of the question regarding which capital buffers apply because the retrieved passages lacked that information, even though it was present in the reference.",
+    "retrieval_seconds": 0.284,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q05",
+    "arm": "single",
+    "question": "What happens to banks' minimum reserve requirements when Bulgaria adopts the euro, and why does it matter for credit?",
+    "answer": "Upon euro adoption, banks' minimum reserve requirements will drop from 12 percent to the ECB's uniform rate of 1 percent [C039, C134]. This reduction frees up a sizable liquidity buffer that banks may partially channel into additional consumer credit and lending for house purchases [C134, C040]. Consequently, this extra liquidity could compound credit market pressures, particularly in an already overheating housing sector [C040, C134].",
+    "citations": [
+      "C039",
+      "C040",
+      "C134"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C039",
+      "C098",
+      "C134",
+      "C040",
+      "C122",
+      "C009"
+    ],
+    "retrieved_pages": [
+      8,
+      22,
+      23,
+      45,
+      55,
+      58
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every statement regarding the drop in reserve requirements, the specific percentages, the freeing of liquidity, and the impact on credit and housing pressures is fully supported by the provided passages.",
+    "completeness_reason": "The answer covers what happens to reserve requirements, the extent of the drop, and why it matters for credit and the housing market, leaving out no essential details from the reference.",
+    "retrieval_seconds": 0.374,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q06",
+    "arm": "single",
+    "question": "How does IMF staff assess Bulgaria's external position in 2024?",
+    "answer": "I am sorry, but the provided passages do not contain information on how IMF staff assesses Bulgaria's overall external position in 2024.",
+    "citations": [],
+    "answerable": false,
+    "retrieved": [
+      "C001",
+      "C046",
+      "C007",
+      "C047",
+      "C098",
+      "C009"
+    ],
+    "retrieved_pages": [
+      2,
+      5,
+      8,
+      26,
+      27,
+      45
+    ],
+    "page_hit": false,
+    "gold_recall": 0.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "The system correctly identified that the provided passages do not contain information about the IMF staff's assessment of Bulgaria's overall external position, making the refusal completely truthful to the context provided.",
+    "completeness_reason": "Since the retrieved passages lacked the specific information contained in the reference text regarding the external position, the system gave the only correct response possible given its context.",
+    "retrieval_seconds": 0.262,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q07",
+    "arm": "single",
+    "question": "What is the overall risk of sovereign stress in the debt sustainability analysis?",
+    "answer": "The overall risk of sovereign stress in the debt sustainability analysis is low [C099], [C100]. This reflects a relatively low level of vulnerability in both the near term and medium term [C100]. Public debt is sustainable and the second lowest in the EU [C099], [C100].",
+    "citations": [
+      "C099",
+      "C100"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C099",
+      "C100",
+      "C112",
+      "C053",
+      "C019",
+      "C004"
+    ],
+    "retrieved_pages": [
+      3,
+      13,
+      29,
+      30,
+      46,
+      47,
+      51
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every statement made in the answer, including the low risk of sovereign stress and debt being sustainable and the second lowest in the EU, is directly supported by the provided text.",
+    "completeness_reason": "The answer covers all relevant details from the reference text regarding the overall risk of sovereign stress and the state of public debt.",
+    "retrieval_seconds": 0.261,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q08",
+    "arm": "single",
+    "question": "What did headline, core and services inflation reach in September 2025?",
+    "answer": "In September 2025, HICP headline inflation rose to 4.1 percent year-over-year and core inflation reached 3.4 percent year-over-year [C141]. Meanwhile, prices for services strengthened to 5.2 percent year-over-year [C141].",
+    "citations": [
+      "C141"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C011",
+      "C012",
+      "C141",
+      "C026",
+      "C052",
+      "C033"
+    ],
+    "retrieved_pages": [
+      9,
+      15,
+      16,
+      19,
+      29,
+      65,
+      66
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every number and date mentioned in the answer is directly supported by passage C141.",
+    "completeness_reason": "The answer fully captures all the specific inflation metrics requested by the question as present in the reference and passages.",
+    "retrieval_seconds": 0.25,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q09",
+    "arm": "single",
+    "question": "What risk does the staff supplement link to U.S. sanctions on Lukoil?",
+    "answer": "Strengthened U.S. sanctions against Lukoil present risks of potential fuel supply disruptions in Bulgaria [C141]. Additionally, these possible disruptions may lead to negative budgetary implications [C141].",
+    "citations": [
+      "C141"
+    ],
+    "answerable": true,
+    "retrieved": [
+      "C020",
+      "C091",
+      "C092",
+      "C136",
+      "C141",
+      "C140"
+    ],
+    "retrieved_pages": [
+      13,
+      14,
+      41,
+      42,
+      58,
+      59,
+      65,
+      66
+    ],
+    "page_hit": true,
+    "gold_recall": 1.0,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "Every detail in the answer about fuel supply disruptions and budgetary implications is directly backed by passage C141.",
+    "completeness_reason": "The answer covers all relevant points from the reference including fuel supply disruptions, ownership by Lukoil, and negative budget costs.",
+    "retrieval_seconds": 0.319,
+    "refused_correctly": null
+  },
+  {
+    "qid": "Q10",
+    "arm": "single",
+    "question": "What unemployment rate does the IMF project for Bulgaria in 2035?",
+    "answer": "I am sorry, but the provided passages do not contain information regarding the IMF's projected unemployment rate for Bulgaria in 2035.",
+    "citations": [],
+    "answerable": false,
+    "retrieved": [
+      "C001",
+      "C015",
+      "C007",
+      "C017",
+      "C014",
+      "C087"
+    ],
+    "retrieved_pages": [
+      2,
+      5,
+      10,
+      11,
+      12,
+      39,
+      40
+    ],
+    "page_hit": null,
+    "gold_recall": null,
+    "faithfulness": 5,
+    "completeness": 5,
+    "faithfulness_reason": "The answer correctly states that the provided passages do not contain information about the unemployment rate in 2035.",
+    "completeness_reason": "The answer successfully addresses the prompt by recognizing that the information is missing from the text, which matches the reality of the reference.",
+    "retrieval_seconds": 0.244,
+    "refused_correctly": true
+  }
+]
