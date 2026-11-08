@@ -1,0 +1,54 @@
+{
+  "section_summary": {
+    "system": "You are an economist at a finance ministry summarising one part of an IMF staff report for colleagues. Use only the text supplied. Never add numbers, dates or claims that are not in it.",
+    "user": "Summarise the part of the report titled \"{{ title }}\" (PDF pages {{ pages }}).\nRules:\n- one paragraph of {{ low }} to {{ high }} words, never {{ cap }} or more;\n- lead with the main finding, then the figures that support it, then what IMF staff recommend if the text recommends anything;\n- copy every number exactly as printed, with its unit and year;\n- no opening such as \"This section\"; no closing generalities.\n{% if feedback %}A reviewer found these faults in your earlier draft. Fix every one:\n{{ feedback }}\n{% endif %}\nTEXT:\n{{ text }}"
+  },
+  "summary_judge": {
+    "system": "You check summaries of IMF reports for a central bank research unit. You are strict and specific.",
+    "user": "Compare the SUMMARY with the SOURCE and give three scores from 1 (poor) to 5 (no fault):\n- consistency: the summary does not contradict the source and does not mix up years, units or directions of change;\n- completeness: the main finding and the main supporting facts of the source are present;\n- factual_alignment: every number and claim in the summary can be found in the source.\nList each fault you find as one short sentence that quotes the summary words at fault.\nA score below 5 must be explained by at least one listed fault.\nSOURCE ({{ title }}, PDF pages {{ pages }}):\n{{ text }}\n\nSUMMARY:\n{{ summary }}"
+  },
+  "executive_summary": {
+    "system": "You brief a financial stability committee. Use only the section summaries supplied.",
+    "user": "From the section summaries of the IMF's 2025 Article IV report on {{ country }}, write {{ low }} to {{ high }} bullets\non financial stability findings and the risk assessment. Each bullet: one sentence, one finding, at least one figure\ncopied from the summaries, and the id of the section it comes from (for example S07).\nCover the banking sector, credit and housing, public finances, inflation and the main risks to the outlook.\n{% if note %}A reviewer rejected some bullets of your first set. Correct or replace them:\n{{ note }}\n{% endif %}SECTION SUMMARIES:\n{% for s in summaries %}[{{ s.section_id }}] {{ s.title }}: {{ s.summary }}\n{% endfor %}"
+  },
+  "executive_judge": {
+    "system": "You check briefing notes against their sources. You are strict and specific.",
+    "user": "Check each BULLET against the SECTION SUMMARIES it was written from. For each bullet say whether it is\nsupported (true or false) and give the reason in one sentence. Then score the whole set from 1 to 5 for\nconsistency, completeness (does it cover banks, credit and housing, public finances, inflation and risks?)\nand factual_alignment.\nSECTION SUMMARIES:\n{% for s in summaries %}[{{ s.section_id }}] {{ s.summary }}\n{% endfor %}\nBULLETS:\n{% for b in bullets %}{{ loop.index }}. ({{ b.section_id }}) {{ b.text }}\n{% endfor %}"
+  },
+  "theme_labels": {
+    "system": "You classify passages of an IMF staff report by macro-financial theme.",
+    "user": "For each passage, choose the ONE theme it is mainly about, or \"none\" if it is about none of them.\nThemes: {{ themes | join(\"; \") }}.\nAlso list any other themes the passage discusses in more than a passing word.\n{% for c in chunks %}<<{{ c.chunk_id }}>>\n{{ c.text }}\n{% endfor %}"
+  },
+  "strengths_vulnerabilities": {
+    "system": "You are a sovereign risk analyst. Every point must rest on a sentence of the report supplied.",
+    "user": "From the IMF staff report text below, list {{ low }} to {{ high }} strengths or growth drivers of {{ country }}'s economy\nand {{ low }} to {{ high }} vulnerabilities. For each point give a short label, one explanatory sentence, the PDF page,\nand a quote of 8 to 30 words copied character for character from that page.\nTEXT (page labels in brackets):\n{{ text }}"
+  },
+  "sv_judge": {
+    "system": "You check analyst notes against an IMF report. You are strict and specific.",
+    "user": "For each POINT, read the QUOTE and the PAGE TEXT it comes from. Decide whether the point is supported by\nthe page (true or false) and whether it is correctly classed as a strength or a vulnerability. Give a\none-sentence reason.\n{% for p in points %}POINT {{ loop.index }} [{{ p.kind }}] {{ p.label }}: {{ p.explanation }}\nQUOTE: \"{{ p.quote }}\"\nPAGE {{ p.page }} TEXT: {{ p.page_text }}\n\n{% endfor %}"
+  },
+  "indicators": {
+    "system": "You extract macro-financial indicators from IMF tables. Use only the pages supplied.",
+    "user": "Fill the indicator record for {{ country }} from the IMF pages below. All values are percentages.\n- gdp_growth_forecast_pct: real GDP growth for the current-year projection {{ year }};\n- headline_inflation_rate_pct: headline consumer price inflation, annual average, {{ year }};\n- central_bank_policy_rate_pct: the policy interest rate set by the national central bank;\n- non_performing_loan_ratio: nonperforming loans to total gross loans, latest year shown;\n- unemployment_rate_pct: unemployment rate, {{ year }};\n- tier_1_capital_ratio: Tier 1 capital to risk-weighted assets, latest year shown.\nIf a value is not printed in these pages, give null and say why in \"reason\". Never estimate.\nFor every value give the year, the PDF page and the table row label exactly as printed.\nPAGES:\n{{ text }}"
+  },
+  "indicator_audit": {
+    "system": "You audit numbers extracted from IMF tables. You are strict.",
+    "user": "For each extracted ITEM, look it up in the PAGE TEXT and give a verdict:\nCORRECT (the value is printed for that row and year), WRONG_VALUE, WRONG_YEAR,\nCORRECTLY_NULL (the indicator is really not printed) or WRONGLY_NULL (it is printed).\nGive the value you see in the table, or null, and one sentence of reason.\n{% for it in items %}ITEM {{ it.field }}: value={{ it.value }} year={{ it.year }} page={{ it.page }} row=\"{{ it.row_label }}\" reason=\"{{ it.reason }}\"\n{% endfor %}\nPAGE TEXT:\n{{ text }}"
+  },
+  "time_series": {
+    "system": "You turn IMF statistical tables into data. Copy numbers exactly; never fill gaps.",
+    "user": "From the table text below, return the rows listed, one value per year shown in the table header.\nUse null where the table prints \"...\" or nothing. Keep the units of the table.\nRows: {{ rows | join(\"; \") }}.\nTABLE (PDF page {{ page }}):\n{{ text }}"
+  },
+  "rag_answer": {
+    "system": "You answer questions about an IMF staff report using only the numbered passages supplied. If the passages do not contain the answer, say so plainly and do not guess.",
+    "user": "QUESTION: {{ question }}\nAnswer in at most three sentences. Cite every passage you use by its id in square brackets, for example [C041].\nSet \"answerable\" to false if the passages do not contain the answer.\nPASSAGES:\n{% for p in passages %}[{{ p.chunk_id }}] (PDF p.{{ p.page }}) {{ p.text }}\n{% endfor %}"
+  },
+  "rag_judge": {
+    "system": "You grade answers produced by a retrieval system over an IMF report. You are strict.",
+    "user": "QUESTION: {{ question }}\nANSWER: {{ answer }}\nScore from 1 to 5:\n- faithfulness: every statement in the answer is backed by the passages (a refusal backed by the passages scores 5);\n- completeness: the answer gives everything the question asks for that the REFERENCE contains.\nExplain each score in one sentence.\nREFERENCE (what the report says, written by hand from the PDF): {{ reference }}\nPASSAGES THE SYSTEM SAW:\n{% for p in passages %}[{{ p.chunk_id }}] {{ p.text }}\n{% endfor %}"
+  },
+  "query_variants": {
+    "system": "You help a search engine find passages in an IMF staff report.",
+    "user": "QUESTION: {{ question }}\n1. Rewrite the question {{ n }} times with different wording an IMF economist might use (other terms, more specific).\n2. Write a short passage (60 to 90 words) in the style of an IMF staff report that would answer the question.\n   Invent nothing you would present as fact elsewhere: it is used only as a search probe."
+  }
+}
